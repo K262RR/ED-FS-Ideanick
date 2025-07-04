@@ -21,6 +21,7 @@ export const AllIdeasPage = () => {
   return (
     <div>
       <h1>IdeaNick</h1>
+      <div className="any-class-name">123</div>
       {data?.ideas.map((idea) => {
         return (
           <div key={idea.nick}>

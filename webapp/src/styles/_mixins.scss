@@ -1,0 +1,12 @@
+@import "./_vars.scss";
+
+@mixin h1 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: left;
+  text-shadow: none;
+}
