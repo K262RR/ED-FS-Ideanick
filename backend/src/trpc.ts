@@ -28,6 +28,8 @@ const ideas = [
   },
 ];
 
+const x: number = 'Aloha';
+
 const trpc = initTRPC.create();
 
 export const trpcRouter = trpc.router({
