@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-
+npx commitlint --edit $1
 # Читаем сообщение коммита
 commit_msg_file="$1"
 commit_msg=$(cat "$commit_msg_file")
