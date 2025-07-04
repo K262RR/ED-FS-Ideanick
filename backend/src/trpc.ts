@@ -28,7 +28,8 @@ const ideas = [
   },
 ];
 
-const x: number = 'Aloha';
+const x: string = 'Aloha';
+if (Math.random()) console.info(x)
 
 const trpc = initTRPC.create();
 
