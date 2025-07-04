@@ -9,8 +9,7 @@
     "dev": "pnpm -r --parallel dev",
     "types": "concurrently 'pnpm b types' 'pnpm w types'",
     "prettify": "pnpm -r --parallel prettier prettify",
-    "lint": "pnpm -r --parallel lint",
-    "prepare": "husky"
+    "lint": "pnpm -r --parallel lint"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
@@ -23,7 +22,6 @@
     "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.3.0",
-    "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "nvm": "^0.0.4",
     "prettier": "^3.6.2",
