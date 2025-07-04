@@ -2,12 +2,14 @@
   "name": "ideas",
   "private": "true",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "b": "pnpm --filter @ideas/backend",
     "w": "pnpm --filter @ideas/webapp",
     "dev": "pnpm -r --parallel dev",
     "types": "concurrently 'pnpm b types' 'pnpm w types'",
-    "prettify": "pnpm -r --parallel prettier prettify"
+    "prettify": "pnpm -r --parallel prettier prettify",
+    "lint": "pnpm -r --parallel lint"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",

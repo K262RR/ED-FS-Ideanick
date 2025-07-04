@@ -1,6 +1,6 @@
-import { createTRPCReact, httpBatchLink } from "@trpc/react-query";
 import type { TrpcRouter } from "@ideas/backend/src/trpc";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { createTRPCReact, httpBatchLink } from "@trpc/react-query";
 
 export const trpc = createTRPCReact<TrpcRouter>();
 
@@ -25,6 +25,6 @@ export const TrpcProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-      </trpc.Provider>
-  )
-}
+    </trpc.Provider>
+  );
+};
