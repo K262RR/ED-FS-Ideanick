@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+
+# Читаем сообщение коммита
+commit_msg_file="$1"
+commit_msg=$(cat "$commit_msg_file")
+
+# Удаляем пробелы в начале и конце
+commit_msg=$(echo "$commit_msg" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+# Делаем первую букву заглавной
+first_char=$(echo "$commit_msg" | cut -c1)
+rest_of_msg=$(echo "$commit_msg" | cut -c2-)
+first_char_upper=$(echo "$first_char" | tr '[:lower:]' '[:upper:]')
+commit_msg="$first_char_upper$rest_of_msg"
+
+# Добавляем точку в конец, если её нет
+if [ -n "$commit_msg" ] && [ "${commit_msg: -1}" != "." ]; then
+    commit_msg="$commit_msg."
+fi
+
+# Записываем обработанное сообщение обратно в файл
+echo "$commit_msg" > "$commit_msg_file"
