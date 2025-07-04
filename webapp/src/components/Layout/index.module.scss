@@ -1,7 +1,30 @@
 @import "../../styles/_vars.scss";
 @import "../../styles/_mixins.scss";
 
-.logo {
-  @include h1;
-  color: green;
+$breakpoint: '<=900px';
+
+.layout {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+  @include media($breakpoint) {
+    flex-flow: column nowrap;
+  }
 }
+
+.navigation {
+  height: 100%;
+  overflow: hidden;
+  flex: 0 0 200px;
+  padding: 20px 30px;
+  border-right: 1px solid $black;
+  @include media($breakpoint) {
+    height: auto;
+    overflow: visible;
+    flex: 0 0 auto;
+    border-right: none;
+    border-bottom: 1px solid $black;
+  }
+}
+
+.logo {}

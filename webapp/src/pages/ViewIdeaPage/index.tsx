@@ -5,8 +5,9 @@ import { trpc } from "../../lib/trpc";
 export const ViewIdeaPage = () => {
   const { ideaNick } = useParams() as viewIdeaRouteParams;
 
-  const { data, error, isLoading, isFetching, isError } =
-  trpc.getIdea.useQuery({ideaNick});
+  const { data, error, isLoading, isFetching, isError } = trpc.getIdea.useQuery(
+    { ideaNick },
+  );
 
   if (isLoading) {
     return <span>Loading...</span>;
@@ -26,10 +27,10 @@ export const ViewIdeaPage = () => {
 
   return (
     <div>
-      <h1>{ data.idea.name }</h1>
-      <p>{ data.idea.description }</p>
+      <h1>{data.idea.name}</h1>
+      <p>{data.idea.description}</p>
       <div>
-        <p dangerouslySetInnerHTML={{__html: data.idea.text}} />
+        <p dangerouslySetInnerHTML={{ __html: data.idea.text }} />
       </div>
     </div>
   );
