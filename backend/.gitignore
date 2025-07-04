@@ -1,0 +1,38 @@
+# Логи и кэш
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# Директории зависимостей
+node_modules/
+dist/
+
+# Файлы окружения
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Файлы IDE
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Файлы сборки/компиляции
+build/
+coverage/
+.nyc_output/
+
+# Файлы конфигурации
+*.config.js
+*.config.ts
+# End Generation Here
