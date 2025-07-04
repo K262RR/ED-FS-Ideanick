@@ -2,12 +2,14 @@
   "name": "@ideas/backend",
   "private": "true",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "ts-node-dev --rs ./src/index.ts",
     "build": "rimraf dist && tsc -p ./tsconfig.json",
     "start": "node ./dist/index.js",
-    "prettify": "prettier --log-level warn --cache --write \"{src/**/*,*}.{ts,tsx,js,json,yml,scss}\" \"!**/{node_modules,dist}/**/*\"",
-    "types": "tsc --noEmit --project ./tsconfig.json"
+    "types": "tsc --noEmit --project ./tsconfig.json",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/.eslintcache --ext .ts .",
+    "prettify": "prettier --log-level warn --cache --write \"{src/**/*,*}.{ts,tsx,js,json,yml,scss}\" \"!**/{node_modules,dist}/**/*\""
   },
   "dependencies": {
     "@trpc/server": "^11.4.3",
