@@ -61,6 +61,12 @@ export default [
         { skipTemplates: true, skipStrings: true },
       ],
       "no-console": ["error", { allow: ["info", "error", "warn"] }],
+      "prettier/prettier": [
+        "error",
+        {
+          endOfLine: "auto",
+        },
+      ],
     },
   },
 ];
