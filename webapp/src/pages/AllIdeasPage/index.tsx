@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Segment } from "../../components/Segment";
 import { getViewIdeaRoute } from "../../lib/routes";
 import { trpc } from "../../lib/trpc";
 
@@ -19,21 +20,22 @@ export const AllIdeasPage = () => {
   }
 
   return (
-    <div>
-      <h1>IdeaNick</h1>
-      <div className="any-class-name">123</div>
-      {data?.ideas.map((idea) => {
-        return (
+    <Segment title="All Ideas">
+      <div>
+        {data?.ideas.map((idea) => (
           <div key={idea.nick}>
-            <h2>
-              <Link to={getViewIdeaRoute({ ideaNick: idea.nick })}>
-                {idea.name}
-              </Link>
-            </h2>
-            <p>{idea.description}</p>
+            <Segment
+              size={2}
+              title={
+                <Link to={getViewIdeaRoute({ ideaNick: idea.nick })}>
+                  {idea.name}
+                </Link>
+              }
+              description={idea.description}
+            />
           </div>
-        );
-      })}
-    </div>
+        ))}
+      </div>
+    </Segment>
   );
 };
