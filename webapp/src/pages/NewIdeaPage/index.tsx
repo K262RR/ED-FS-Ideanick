@@ -2,6 +2,21 @@ import { Input } from "../../components/Input";
 import { Segment } from "../../components/Segment";
 import { Textarea } from "../../components/Textarea";
 import { useFormik } from "formik";
+import { z } from "zod";
+import { withZodSchema } from "formik-validator-zod";
+
+const schema = z.object({
+  name: z.string().min(1, "Name is required"),
+  nick: z
+    .string()
+    .min(1, "Nick is required")
+    .regex(
+      /^[a-zA-Z0-9-]+$/,
+      "Nick must contain only letters, numbers and hyphens"
+    ),
+  description: z.string().min(1, "Description is required"),
+  content: z.string().min(10, "Content must be at least 10 characters long"),
+});
 
 export const NewIdeaPage = () => {
   const formik = useFormik({
@@ -11,22 +26,7 @@ export const NewIdeaPage = () => {
       description: "",
       content: "",
     },
-    validate: (values) => {
-      const errors: Partial<typeof values> = {};
-      if (!values.name) {
-        errors.name = "Name is required";
-      }
-      if (!values.nick.match(/^[a-zA-Z0-9-]+$/)) {
-        errors.nick = "Nick must contain only letters, numbers and hyphens";
-      }
-      if (!values.description) {
-        errors.description = "Description is required";
-      }
-      if (values.content.length < 10) {
-        errors.content = "Content must be at least 10 characters long";
-      }
-      return errors;
-    },
+    validate: withZodSchema(schema),
     onSubmit: (values) => {
       console.info("Submited", values);
       console.info("Errors", formik);
