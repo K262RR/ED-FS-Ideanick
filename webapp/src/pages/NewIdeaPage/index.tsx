@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Input } from "../../components/Input";
 import { Segment } from "../../components/Segment";
-import css from "./index.module.scss";
+import { Textarea } from "../../components/Textarea";
 
 export const NewIdeaPage = () => {
   const [state, setState] = useState({
@@ -18,51 +19,10 @@ export const NewIdeaPage = () => {
           console.info(state);
         }}
       >
-        <div style={{ marginBottom: 10 }}>
-          <label htmlFor="name">Name</label>
-          <br />
-          <input
-            type="text"
-            value={state.name}
-            onChange={(e) => setState({ ...state, name: e.target.value })}
-            name="name"
-            id="name"
-          />
-        </div>
-        <div style={{ marginBottom: 10 }}>
-          <label htmlFor="nick">Nick</label>
-          <br />
-          <input
-            type="text"
-            value={state.nick}
-            onChange={(e) => setState({ ...state, nick: e.target.value })}
-            name="nick"
-            id="nick"
-          />
-        </div>
-        <div style={{ marginBottom: 10 }}>
-          <label htmlFor="description">Description</label>
-          <br />
-          <input
-            type="text"
-            value={state.description}
-            onChange={(e) =>
-              setState({ ...state, description: e.target.value })
-            }
-            name="description"
-            id="description"
-          />
-        </div>
-        <div style={{ marginBottom: 10 }}>
-          <label htmlFor="content">Content</label>
-          <br />
-          <textarea
-            value={state.content}
-            onChange={(e) => setState({ ...state, content: e.target.value })}
-            name="content"
-            id="content"
-          />
-        </div>
+        <Input name="name" label="Name" state={state} setState={setState} />
+        <Input name="nick" label="Nick" state={state} setState={setState} />
+        <Input name="description" label="Description" state={state} setState={setState} />
+       <Textarea name="content" label="Content" state={state} setState={setState} />
         <button type="submit"> Отправить</button>
       </form>
     </Segment>
