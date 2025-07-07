@@ -1,22 +1,22 @@
-@use "../../styles/_vars.scss" as *;
-@use "../../styles/_mixins.scss" as *;
+@use "../../styles/_vars.scss" as vars;
+@use "../../styles/_mixins.scss" as mixins;
 
 .segment {
   margin-bottom: 30px;
 
   h1.title {
-    @include h1;
+    @include mixins.h1;
   }
   h2.title {
-    @include h2;
+    @include mixins.h2;
   }
   h3.title {
-    @include h3;
+    @include mixins.h3;
   }
 
   .title {
     a {
-      @include h1;
+      @include mixins.h1;
       color: cornflowerblue;
       text-decoration: none;
     }
